@@ -5,22 +5,26 @@ import { nanoid } from "nanoid";
 
 function GoogleSignIn() {
     const [scopes, setScopes] = useState([])
-
+    const [scopeButton, setScopeButton] = useState({})
     
-    const scopeOnClick = (scope) => {
-       if(scopes.includes(scope)){
-        setScopes(prevScopes => prevScopes.filter(item => item !== scope))
+    const scopeOnClick = (data) => {
+        setScopeButton(data.isSelected ? data.isSelected = false : data.isSelected = true)
+
+       if(scopes.includes(data.scope)){
+        setScopes(prevScopes => prevScopes.filter(item => item !== data.scope))
        }else{
-        setScopes(prevScopes => [...prevScopes, scope])
+        setScopes(prevScopes => [...prevScopes, data.scope])
        }
     }
+    console.log(scopes)
+    console.log(scopeButton)
 
 
-    const gScopeButtons = data.map((item, key) => {
+    const gScopeButtons = data.map((item) => {
         return (
             <button 
                 key={nanoid()}
-                onClick={() => scopeOnClick(item.scope, key)}
+                onClick={() => scopeOnClick(item)}
                 className={item.isSelected ? "gButton active" : "gButton"} 
                 style={{background: item.color}}>
                     <img className="iconBtn" src={item.image} alt="scope button"></img>

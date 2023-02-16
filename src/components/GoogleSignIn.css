@@ -9,6 +9,11 @@
     position: relative;
 }
 
+.gBox{
+    position: relative;
+    height: 80%;
+}
+
 .gWrapper h1{
     text-align: center;
 }
@@ -20,6 +25,8 @@
     padding: 25px 0;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .gButton{
@@ -56,6 +63,24 @@
 .gButton:hover > img{
     transition: all 700ms ease;
     transform: rotate(360deg);
+}
+
+.access-token-container{
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .access-token-container > p{
+    flex: 1 0 auto;
+} */
+
+.access-token{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: rgb(87, 85, 85);
+    padding: 3px 5px;
 }
 
 .login-with-google-btn {

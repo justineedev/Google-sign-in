@@ -5,7 +5,8 @@ import { nanoid } from "nanoid";
 
 function GoogleSignIn() {
     const [scopes, setScopes] = useState([])
-    
+    const [accessToken, setAccessToken] = useState("")
+
     const scopeOnClick = (data) => {
         data.isSelected = !data.isSelected
 
@@ -24,6 +25,13 @@ function GoogleSignIn() {
         "&client_id=743985126559-t883n6da4nairfj6m2lfal0p3a2ulr9c.apps.googleusercontent.com", "_blank", "height=600 width=500 top=" +(window.innerHeight / 2 - 300) + ",left=" + (window.innerWidth / 2 - 400));
     }
 
+    const messageListener = (event) => {
+      document.getElementById("access-token").innerHTML = event.data
+    }
+
+    
+    window.addEventListener("message", messageListener)
+
     const gScopeButtons = data.map((item) => {
         return (
             <button 
@@ -40,17 +48,27 @@ function GoogleSignIn() {
         <div className="gWrapper">
             <h1>Google Token</h1>
 
-        <div className="gScopesContainer">
-            {gScopeButtons}
+        <div className="gBox">
+            <div className="gScopesContainer">
+                {gScopeButtons}
+            </div>
+            
+            <button 
+                type="button"
+                className="login-with-google-btn"
+                onClick={signIn}     
+            >
+                    Sign in with Google
+            </button>
         </div>
-        <button 
-            type="button"
-            className="login-with-google-btn"
-            onClick={signIn}     
-        >
-                Sign in with Google
-        </button>
+        <div className="access-token-container">
+                <p>Access token:</p>
+                <pre className="access-token" id="access-token"></pre>
+            </div>
+        
+            
         </div>
+        
     )
 }
 

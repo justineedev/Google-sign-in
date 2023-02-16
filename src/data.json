@@ -42,17 +42,10 @@
         "isSelected": false
     },
     {
-        "name": "Google Chat Bot",
-        "image": "https://cdn-icons-png.flaticon.com/512/1377/1377238.png",
-        "scope": "https://www.googleapis.com/auth/chat.bot",
-        "color": "#21A062",
-        "isSelected": false
-    },
-    {
         "name": "Google Chat",
         "image": "https://cdn-icons-png.flaticon.com/512/270/270020.png",
         "scope": "https://www.googleapis.com/auth/chat.spaces https://www.googleapis.com/auth/chat.messages",
-        "color": "#21A062",
+        "color": "#00AC47",
         "isSelected": false
     }
 ]

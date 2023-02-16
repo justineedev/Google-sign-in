@@ -1,14 +1,13 @@
 import { useState } from "react";
 import './GoogleSignIn.css'
-import data from './data.json'
+import data from '../data.json'
 import { nanoid } from "nanoid";
 
 function GoogleSignIn() {
     const [scopes, setScopes] = useState([])
-    const [scopeButton, setScopeButton] = useState({})
     
     const scopeOnClick = (data) => {
-        setScopeButton(data.isSelected ? data.isSelected = false : data.isSelected = true)
+        data.isSelected = !data.isSelected
 
        if(scopes.includes(data.scope)){
         setScopes(prevScopes => prevScopes.filter(item => item !== data.scope))
@@ -16,9 +15,14 @@ function GoogleSignIn() {
         setScopes(prevScopes => [...prevScopes, data.scope])
        }
     }
-    console.log(scopes)
-    console.log(scopeButton)
 
+    const signIn = () => {
+        window.open("https://accounts.google.com/o/oauth2/v2/auth?" +
+        "scope=" + scopes.join(" ") +
+        "&response_type=token" +
+        "&redirect_uri=https://google-chat-sign-in.vercel.app/callback.html" +
+        "&client_id=743985126559-t883n6da4nairfj6m2lfal0p3a2ulr9c.apps.googleusercontent.com", "_blank", "height=600 width=500 top=" +(window.innerHeight / 2 - 300) + ",left=" + (window.innerWidth / 2 - 400));
+    }
 
     const gScopeButtons = data.map((item) => {
         return (
@@ -39,8 +43,12 @@ function GoogleSignIn() {
         <div className="gScopesContainer">
             {gScopeButtons}
         </div>
-        <button type="button" className="login-with-google-btn" >
-            Sign in with Google
+        <button 
+            type="button"
+            className="login-with-google-btn"
+            onClick={signIn}     
+        >
+                Sign in with Google
         </button>
         </div>
     )

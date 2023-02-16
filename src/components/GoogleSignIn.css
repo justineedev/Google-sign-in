@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    border-radius: 6px;
+    border-radius: 3px;
     outline: none;
     border: none;
     margin: 5px 15px;
@@ -38,8 +38,9 @@
     height: 45px; 
 }
 .gButton.active{
-    box-shadow: 2.2px 4.3px 4.3px rgba(236, 236, 236, 0.43);
+    box-shadow: 2.2px 4.3px 4.3px rgb(255, 255, 255);
     transform: scale(1.1rem);
+    font-weight: bold;
 }
 
 .iconBtn{
@@ -47,8 +48,14 @@
     margin-right: 5px;
 }
 
-.gButton:hover{
-    
+.gButton > img{
+    transition: all 700ms ease;
+    transform-style: preserve-3d;
+}
+
+.gButton:hover > img{
+    transition: all 700ms ease;
+    transform: rotate(360deg);
 }
 
 .login-with-google-btn {
@@ -56,8 +63,6 @@
     padding: 12px 16px 12px 42px;
     border: none;
     border-radius: 3px;
-    box-shadow: 0 -1px 0 rgba(214, 213, 213, 0.04), 0 1px 1px rgba(255, 255, 255, 0.25);
-
     cursor: pointer;
 
     color: #06c;

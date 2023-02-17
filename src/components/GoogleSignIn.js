@@ -1,11 +1,22 @@
-import { useState } from "react";
-import './GoogleSignIn.css'
-import data from '../data.json'
+import { useEffect, useState } from "react";
+
+//For Routing
+
+//For CSS
+import './GoogleSignIn.css';
+
+//The Data
+import data from '../data.json';
+
+//For random ID
 import { nanoid } from "nanoid";
+
+
 
 function GoogleSignIn() {
     const [scopes, setScopes] = useState([])
-    const [accessToken, setAccessToken] = useState("")
+    const [accessToken, setAccessToken] = useState('')
+    const [isCopied, setIsCopied] = useState(false)
 
     const scopeOnClick = (data) => {
         data.isSelected = !data.isSelected
@@ -17,20 +28,34 @@ function GoogleSignIn() {
        }
     }
 
-    const signIn = () => {
-        window.open("https://accounts.google.com/o/oauth2/v2/auth?" +
-        "scope=" + scopes.join(" ") +
-        "&response_type=token" +
-        "&redirect_uri=https://google-chat-sign-in.vercel.app/callback.html" +
-        "&client_id=743985126559-t883n6da4nairfj6m2lfal0p3a2ulr9c.apps.googleusercontent.com", "_blank", "height=600 width=500 top=" +(window.innerHeight / 2 - 300) + ",left=" + (window.innerWidth / 2 - 400));
+    const attributes = {
+        authUrl: "https://accounts.google.com/o/oauth2/v2/auth",
+        redirect_uri: `${window.location.origin}/GoogleCallback`,
+        scope: scopes.join(" "),
+        client_id: "743985126559-t883n6da4nairfj6m2lfal0p3a2ulr9c.apps.googleusercontent.com",
+        response_type: "token",
+        state: nanoid()
     }
-
-    const messageListener = (event) => {
-      document.getElementById("access-token").innerHTML = event.data
-    }
-
     
-    window.addEventListener("message", messageListener)
+    const signIn = () => {
+        window.open(`${attributes.authUrl}?response_type=${attributes.response_type}&scope=${attributes.scope}&client_id=${attributes.client_id}&redirect_uri=${attributes.redirect_uri}&state=${attributes.state}`, "_blank", "height=600 width=500 top=" + (window.outerHeight / 2 + window.screenY - (600 / 2)) + ",left=" + (window.outerWidth / 2 + window.screenX - (500 / 2)))
+    }
+
+    useEffect(() => {
+        const messageListener = (event) => {
+            if(typeof event.data === "string"){
+              setAccessToken(event.data)
+              console.log(event)
+            }
+          }
+
+          window.addEventListener("message", messageListener)
+          
+          return () => {
+            window.removeEventListener("message", messageListener)
+          }
+    },[accessToken]);
+   
 
     const gScopeButtons = data.map((item) => {
         return (
@@ -45,30 +70,42 @@ function GoogleSignIn() {
         )
     })
     return (
-        <div className="gWrapper">
-            <h1>Google Token</h1>
 
+    <div className="gWrapper">
+        <h1>Google Token</h1>
+        
         <div className="gBox">
+        <strong>Select scopes:</strong>
             <div className="gScopesContainer">
+                
                 {gScopeButtons}
             </div>
-            
-            <button 
+        
+            {scopes.length > 0 && <button
                 type="button"
                 className="login-with-google-btn"
-                onClick={signIn}     
+                onClick={signIn}
             >
-                    Sign in with Google
-            </button>
+                Sign in with Google
+            </button>}
         </div>
-        <div className="access-token-container">
-                <p>Access token:</p>
-                <pre className="access-token" id="access-token"></pre>
+        
+        {
+            accessToken &&
+            <div className="access-token-container">
+                <div className="access-token">
+                    <p>Access token:</p>
+                    <pre id="access-token">{accessToken}</pre>
+                </div>
+                <div className="access-token-copy">
+                    {isCopied ?  <i class="fa-solid fa-check" style={{color: "lightgreen"}}></i> :  <i class="fa-solid fa-clipboard" onClick={() => {setIsCopied(true)}}></i>}
+                   
+                   
+                </div>
             </div>
-        
-            
-        </div>
-        
+        }
+    </div>
+
     )
 }
 

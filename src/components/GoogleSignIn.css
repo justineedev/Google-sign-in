@@ -16,13 +16,14 @@
 
 .gWrapper h1{
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .gScopesContainer{
     display: grid;
     place-items: center;
     width: 100%;
-    padding: 25px 0;
+    padding-bottom: 25px;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     max-height: 300px;
@@ -68,19 +69,49 @@
 .access-token-container{
     height: 50px;
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
-/* .access-token-container > p{
-    flex: 1 0 auto;
-} */
-
 .access-token{
+    width: 85%;
+}
+
+.access-token pre{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     background-color: rgb(87, 85, 85);
     padding: 3px 5px;
+}
+
+.access-token-copy{
+    font-size: 2rem;
+    height: 100%;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    margin-inline: auto;
+    transition: all 250ms ease;
+}
+
+.access-token-copy > i:hover{
+    transition: all 250ms ease;
+    color: lightgreen;
+}
+
+.copied{
+    color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copied::after{
+    content: "Copied!";
+    font-size: .7rem;
+    display: block;
+    font-family: inherit;
 }
 
 .login-with-google-btn {

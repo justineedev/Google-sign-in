@@ -1,0 +1,31 @@
+.footer{
+    position: absolute;
+    bottom: 20px;
+}
+
+.footer-p{
+    color: #cfcfcf;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-p pre{
+    color: lightblue;
+    margin-left: 10px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .icon {
+      animation: App-logo-spin infinite 2s linear;
+    }
+}
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

@@ -56,6 +56,10 @@ function GoogleSignIn() {
           }
     },[accessToken]);
    
+    const copyAccessToken = () => {
+        setIsCopied(true)
+        navigator.clipboard.writeText(accessToken)
+    }
 
     const gScopeButtons = data.map((item) => {
         return (
@@ -69,6 +73,8 @@ function GoogleSignIn() {
             </button>
         )
     })
+
+    
     return (
 
     <div className="gWrapper">
@@ -98,7 +104,7 @@ function GoogleSignIn() {
                     <pre id="access-token">{accessToken}</pre>
                 </div>
                 <div className="access-token-copy">
-                    {isCopied ?  <i class="fa-solid fa-check" style={{color: "lightgreen"}}></i> :  <i class="fa-solid fa-clipboard" onClick={() => {setIsCopied(true)}}></i>}
+                    {isCopied ?  <i class="fa-solid fa-check" style={{color: "lightgreen"}}></i> :  <i class="fa-solid fa-clipboard" onClick={copyAccessToken}></i>}
                    
                    
                 </div>

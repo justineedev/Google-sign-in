@@ -45,7 +45,6 @@ function GoogleSignIn() {
         const messageListener = (event) => {
             if(typeof event.data === "string"){
               setAccessToken(event.data)
-              console.log(event)
             }
           }
 

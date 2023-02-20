@@ -54,5 +54,12 @@
         "scope": "https://www.googleapis.com/auth/contacts",
         "color": "#5E5AC9",
         "isSelected": false
+    },
+    {
+        "name": "Google Task",
+        "image": "https://cdn-icons-png.flaticon.com/512/906/906334.png",
+        "scope": "https://www.googleapis.com/auth/tasks",
+        "color": "#2580F4",
+        "isSelected": false
     }
 ]

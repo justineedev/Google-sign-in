@@ -1,7 +1,7 @@
 [
     {
         "name": "Google Drive v3",
-        "image": "https://cdn-icons-png.flaticon.com/64/2913/2913963.png",
+        "image": "https://cdn-icons-png.flaticon.com/512/2913/2913963.png",
         "scope": "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.metadata",
         "color": "#4275B6",
         "isSelected": false
@@ -15,7 +15,7 @@
     },
     {
         "name": "Google Docs",
-        "image": "https://cdn-icons-png.flaticon.com/64/2913/2913964.png",
+        "image": "https://cdn-icons-png.flaticon.com/512/2913/2913964.png",
         "scope": "https://www.googleapis.com/auth/documents",
         "color": "#2580F4",
         "isSelected": false
@@ -46,6 +46,13 @@
         "image": "https://cdn-icons-png.flaticon.com/512/270/270020.png",
         "scope": "https://www.googleapis.com/auth/chat.spaces https://www.googleapis.com/auth/chat.messages",
         "color": "#00AC47",
+        "isSelected": false
+    },
+    {
+        "name": "Google People",
+        "image": "https://cdn-icons-png.flaticon.com/512/4128/4128196.png",
+        "scope": "https://www.googleapis.com/auth/contacts",
+        "color": "#5E5AC9",
         "isSelected": false
     }
 ]

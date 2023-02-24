@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-//For Routing
 
 //For CSS
 import './GoogleSignIn.css';
@@ -56,9 +55,13 @@ function GoogleSignIn() {
     },[accessToken]);
    
     const copyAccessToken = () => {
-        setIsCopied(true)
-        navigator.clipboard.writeText(accessToken)
-    }
+        if (!isCopied) {
+          setIsCopied(true);
+          navigator.clipboard.writeText(accessToken);
+          setTimeout(() => setIsCopied(false), 2500);
+        }
+      };
+      
 
     const gScopeButtons = data.map((item) => {
         return (
@@ -75,8 +78,8 @@ function GoogleSignIn() {
 
     
     return (
-
     <div className="gWrapper">
+       
         <h1>Google Token</h1>
         
         <div className="gBox">
@@ -94,23 +97,22 @@ function GoogleSignIn() {
                 Sign in with Google
             </button>}
         </div>
-        
+
         {
             accessToken &&
             <div className="access-token-container">
-                <div className="access-token">
-                    <p>Access token:</p>
-                    <pre id="access-token">{accessToken}</pre>
-                </div>
-                <div className="access-token-copy">
-                    {isCopied ?  <i class="fa-solid fa-check" style={{color: "lightgreen"}}></i> :  <i class="fa-solid fa-clipboard" onClick={copyAccessToken}></i>}
-                   
-                   
-                </div>
+                
+                <span className="access-token-title">Acces token:</span>
+                <span className="access-token">{accessToken}</span>
+                <i 
+                    className={!isCopied ? "fa-regular fa-clipboard access-token-icon" : "fa-regular fa-circle-check access-token-icon"}
+                    onClick={copyAccessToken}
+                >   
+                </i>
             </div>
         }
-    </div>
 
+    </div>
     )
 }
 

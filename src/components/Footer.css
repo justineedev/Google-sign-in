@@ -3,16 +3,21 @@
     bottom: 20px;
 }
 
-.footer-p{
+.footer-details{
     color: #cfcfcf;
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.footer-p pre{
+.footer-name{
     color: lightblue;
-    margin-left: 10px;
+    margin-inline: 10px 5px;
+    font-family: monospace;
+}
+
+.footer-version{
+  font-family: monospace;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -21,7 +21,7 @@ function GoogleCallback() {
 
   return (
     <div>
-      {accessToken && (
+      {accessToken ? (
         <div style={style}>
           <h1>Successful!</h1>
           <img
@@ -30,6 +30,8 @@ function GoogleCallback() {
             alt="success"
           ></img>
         </div>
+      ) : (
+        <h1>Unsuccessful</h1>
       )}
     </div>
   );

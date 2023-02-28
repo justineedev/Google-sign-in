@@ -1,36 +1,37 @@
-.footer{
-    position: absolute;
-    bottom: 20px;
+.footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100vw;
 }
 
-.footer-details{
-    color: #cfcfcf;
-    display: flex;
-    align-items: center;
-    width: 100%;
+.footer-details {
+  color: #cfcfcf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.footer-name{
-    color: lightblue;
-    margin-inline: 10px 5px;
-    font-family: monospace;
+.footer-name {
+  color: lightblue;
+  margin-inline: 10px 5px;
+  font-family: monospace;
 }
 
-.footer-version{
+.footer-version {
   font-family: monospace;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .icon {
-      animation: App-logo-spin infinite 2s linear;
-    }
+  .icon {
+    animation: App-logo-spin infinite 2s linear;
+  }
 }
 @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
-  
+  to {
+    transform: rotate(360deg);
+  }
+}

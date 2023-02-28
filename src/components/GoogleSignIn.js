@@ -84,40 +84,38 @@ function GoogleSignIn() {
   });
 
   return (
-    <div>
-      <div className="gWrapper">
-        <h1>Google Token</h1>
+    <div className="gWrapper">
+      <h1>Google Token</h1>
 
-        <div className="gBox">
-          <strong>Select scopes:</strong>
-          <div className="gScopesContainer">{gScopeButtons}</div>
+      <div className="gBox">
+        <strong>Select scopes:</strong>
+        <div className="gScopesContainer">{gScopeButtons}</div>
 
-          {scopes.length > 0 && (
-            <button
-              type="button"
-              className="login-with-google-btn"
-              onClick={signIn}
-            >
-              Sign in with Google
-            </button>
-          )}
-        </div>
-
-        {accessToken && (
-          <div className="access-token-container">
-            <span className="access-token-title">Acces token:</span>
-            <span className="access-token">{accessToken}</span>
-            <i
-              className={
-                !isCopied
-                  ? "fa-regular fa-clipboard access-token-icon"
-                  : "fa-regular fa-circle-check access-token-icon"
-              }
-              onClick={copyAccessToken}
-            ></i>
-          </div>
+        {scopes.length > 0 && (
+          <button
+            type="button"
+            className="login-with-google-btn"
+            onClick={signIn}
+          >
+            Sign in with Google
+          </button>
         )}
       </div>
+
+      {accessToken && (
+        <div className="access-token-container">
+          <span className="access-token-title">Acces token:</span>
+          <span className="access-token">{accessToken}</span>
+          <i
+            className={
+              !isCopied
+                ? "fa-regular fa-clipboard access-token-icon"
+                : "fa-regular fa-circle-check access-token-icon"
+            }
+            onClick={copyAccessToken}
+          ></i>
+        </div>
+      )}
     </div>
   );
 }

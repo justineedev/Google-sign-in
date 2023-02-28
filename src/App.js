@@ -1,24 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GoogleSignIn from './components/GoogleSignIn';
-import GoogleCallback from "./components/GoogleCallback";
-import Footer from "./components/Footer";
 
-import './App.css';
+import Mainpage from "./components/Mainpage";
+import GoogleCallback from "./components/GoogleCallback";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/" element={<GoogleSignIn></GoogleSignIn>}></Route>
-          <Route path="/GoogleCallback" element={<GoogleCallback></GoogleCallback>}></Route>
+          <Route exact path="/" element={<Mainpage></Mainpage>}></Route>
+          <Route
+            path="/GoogleCallback"
+            element={<GoogleCallback></GoogleCallback>}
+          ></Route>
         </Routes>
       </Router>
-      <Footer></Footer>
     </div>
-
-    );
-  
+  );
 }
 
 export default App;

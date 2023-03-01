@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Mainpage from "./components/Mainpage";
 import GoogleCallback from "./components/GoogleCallback";
+// import Contact from "./components/Contact";
+import Working from "./components/Working";
 
 import "./App.css";
 
@@ -15,6 +17,7 @@ function App() {
             path="/GoogleCallback"
             element={<GoogleCallback></GoogleCallback>}
           ></Route>
+          <Route path="/Contact" element={<Working></Working>}></Route>
         </Routes>
       </Router>
     </div>

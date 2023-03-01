@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleClickContact = () => {
+    navigate("/Contact");
+  };
+
   return (
     <nav>
       <div className="nav-logo">
@@ -12,7 +19,9 @@ const Navbar = () => {
 
       <div className="nav-contact-us">
         <p>Need more scopes?</p>
-        <button className="nav-contact-btn">Contact Us</button>
+        <button className="nav-contact-btn" onClick={handleClickContact}>
+          Contact Us
+        </button>
       </div>
     </nav>
   );

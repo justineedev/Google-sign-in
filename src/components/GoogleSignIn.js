@@ -15,7 +15,11 @@ function GoogleSignIn() {
   const [isCopied, setIsCopied] = useState(false);
 
   const scopeOnClick = (data) => {
-    data.isSelected = !data.isSelected;
+    if (scopes.includes(data.scope)) {
+      data.isSelected = true;
+    } else {
+      data.isSelected = false;
+    }
 
     if (scopes.includes(data.scope)) {
       setScopes((prevScopes) =>

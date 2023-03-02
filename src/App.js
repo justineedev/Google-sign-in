@@ -4,6 +4,7 @@ import Mainpage from "./components/Mainpage";
 import GoogleCallback from "./components/GoogleCallback";
 // import Contact from "./components/Contact";
 import Working from "./components/Working";
+import Notfound from "./components/Notfound";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
             element={<GoogleCallback></GoogleCallback>}
           ></Route>
           <Route path="/Contact" element={<Working></Working>}></Route>
+          <Route path="*" element={<Notfound />}></Route>
         </Routes>
       </Router>
     </div>

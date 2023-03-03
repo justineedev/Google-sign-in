@@ -20,8 +20,8 @@ export default function Notfound() {
     borderRadius: "4px",
     fontSize: "1.1rem",
     cursor: "pointer",
-    backgroundColor: "#e2eaf5",
-    color: "#0075fa",
+    backgroundColor: "#0075fa",
+    color: "#FFFFFF",
   };
 
   const handleClick = () => {

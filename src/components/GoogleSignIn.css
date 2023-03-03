@@ -26,7 +26,6 @@
   display: grid;
   place-items: center;
   width: 100%;
-  padding-bottom: 25px;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px 15px;
   max-height: 250px;
@@ -57,21 +56,6 @@
   background: #0075fa;
   transition: all 400ms ease;
 }
-
-/* .iconBtn {
-  height: 24px;
-  margin-right: 5px;
-} */
-
-/* .gButton > img {
-  transition: all 700ms ease;
-  transform-style: preserve-3d;
-}
-
-.gButton:hover > img {
-  transition: all 700ms ease;
-  transform: rotate(360deg);
-} */
 
 .access-token-container {
   display: flex;

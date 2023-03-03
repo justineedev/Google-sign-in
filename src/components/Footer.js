@@ -7,7 +7,7 @@ export default function Footer() {
       <p className="footer-details">
         Made with <img className="icon" width={35} src={logo} alt="react"></img>{" "}
         by <code className="footer-name">Justine Dave </code>{" "}
-        <span className="footer-version">(v1.1.0)</span>
+        <span className="footer-version">(v1.1.1)</span>
       </p>
     </footer>
   );

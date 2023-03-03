@@ -14,14 +14,14 @@ export default function Working() {
   };
 
   const buttonStyle = {
-    border: "1px solid #06c",
+    border: "none",
     padding: "10px 25px",
     fontFamily: "inherit",
     borderRadius: "4px",
     fontSize: "1.1rem",
     cursor: "pointer",
-    backgroundColor: "transparent",
-    color: "#fff",
+    backgroundColor: "#e2eaf5",
+    color: "#0075fa",
   };
 
   const handleClickBack = () => {
@@ -30,13 +30,13 @@ export default function Working() {
 
   return (
     <div style={wrapperStyle}>
-      <h1>
+      <h1 style={{ textAlign: "center" }}>
         Sorry about the inconvenience! We're working to get things back up and
         running.
       </h1>
-      <img src={working} alt="working"></img>
+      <img src={working} alt="working" style={{ width: "90%" }}></img>
       <button style={buttonStyle} onClick={handleClickBack}>
-        Go back
+        Back to main page
       </button>
     </div>
   );

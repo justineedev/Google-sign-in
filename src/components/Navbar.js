@@ -18,7 +18,6 @@ const Navbar = () => {
       </div>
 
       <div className="nav-contact-us">
-        <p>Need more scopes?</p>
         <button className="nav-contact-btn" onClick={handleClickContact}>
           Contact Us
         </button>

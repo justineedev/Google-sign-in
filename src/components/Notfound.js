@@ -14,14 +14,14 @@ export default function Notfound() {
   };
 
   const buttonStyle = {
-    border: "1px solid #06c",
+    border: "none",
     padding: "10px 25px",
     fontFamily: "inherit",
     borderRadius: "4px",
     fontSize: "1.1rem",
     cursor: "pointer",
-    backgroundColor: "transparent",
-    color: "#fff",
+    backgroundColor: "#e2eaf5",
+    color: "#0075fa",
   };
 
   const handleClick = () => {
@@ -30,8 +30,10 @@ export default function Notfound() {
 
   return (
     <div style={wrapperStyle}>
-      <h1>Sorry, the page you were looking for doesn't exist.</h1>
-      <img src={notFound} alt="notFound"></img>
+      <h1 style={{ textAlign: "center" }}>
+        Sorry, the page you were looking for doesn't exist.
+      </h1>
+      <img src={notFound} alt="notFound" style={{ width: "90%" }}></img>
       <button style={buttonStyle} onClick={handleClick}>
         Back to main page
       </button>

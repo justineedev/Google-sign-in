@@ -15,11 +15,7 @@ function GoogleSignIn() {
   const [isCopied, setIsCopied] = useState(false);
 
   const scopeOnClick = (data) => {
-    if (scopes.includes(data.scope)) {
-      data.isSelected = true;
-    } else {
-      data.isSelected = false;
-    }
+    data.isSelected = !data.isSelected;
 
     if (scopes.includes(data.scope)) {
       setScopes((prevScopes) =>
@@ -79,9 +75,7 @@ function GoogleSignIn() {
         key={nanoid()}
         onClick={() => scopeOnClick(item)}
         className={item.isSelected ? "gButton active" : "gButton"}
-        style={{ background: item.color }}
       >
-        <img className="iconBtn" src={item.image} alt="scope button"></img>
         {item.name}
       </button>
     );
@@ -92,7 +86,7 @@ function GoogleSignIn() {
       <h1>Google Token</h1>
 
       <div className="gBox">
-        <strong>Select scopes:</strong>
+        <span>Select scopes:</span>
         <div className="gScopesContainer">{gScopeButtons}</div>
 
         {scopes.length > 0 && (

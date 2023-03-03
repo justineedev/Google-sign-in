@@ -34,7 +34,11 @@ export default function Working() {
         Sorry about the inconvenience! We're working to get things back up and
         running.
       </h1>
-      <img src={working} alt="working" style={{ width: "90%" }}></img>
+      <img
+        src={working}
+        alt="working"
+        style={{ maxWidth: "100%", height: "auto" }}
+      ></img>
       <button style={buttonStyle} onClick={handleClickBack}>
         Back to main page
       </button>

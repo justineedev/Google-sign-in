@@ -33,7 +33,11 @@ export default function Notfound() {
       <h1 style={{ textAlign: "center" }}>
         Sorry, the page you were looking for doesn't exist.
       </h1>
-      <img src={notFound} alt="notFound" style={{ width: "90%" }}></img>
+      <img
+        src={notFound}
+        alt="notFound"
+        style={{ maxWidth: "100%", height: "auto" }}
+      ></img>
       <button style={buttonStyle} onClick={handleClick}>
         Back to main page
       </button>

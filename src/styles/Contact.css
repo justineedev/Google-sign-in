@@ -1,0 +1,110 @@
+.contact-wrapper {
+  width: calc(100vw - 1rem);
+  max-width: 500px;
+  height: calc(100vh - 1rem);
+  max-height: 500px;
+  border-radius: 6px;
+  padding: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 300ms ease;
+}
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.contact-input-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.contact-input {
+  width: 100%;
+  height: 60px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 5px 15px;
+  position: relative;
+  transition: all 300ms ease;
+  font-size: 18px;
+  font-family: inherit;
+}
+
+.contact-input:focus {
+  border: 1px solid #0075fa;
+}
+
+.contact-input-label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  pointer-events: none;
+  user-select: none;
+  transition: all 300ms ease;
+  opacity: 0.7;
+}
+
+.contact-input-label.textarea {
+  top: 10%;
+}
+
+.contact-input.textarea {
+  padding-top: 15px;
+}
+
+.contact-input:focus + .contact-input-label,
+.contact-input:not(:placeholder-shown) + .contact-input-label {
+  top: 0;
+  left: 10px;
+  color: #000;
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+.contact-input:focus + .contact-input-label {
+  color: #0075fa;
+}
+
+.contact-buttons {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-buttons button {
+  padding-block: 7.5px;
+  width: 120px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e2eaf5;
+  color: #0075fa;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 300ms ease;
+}
+
+.contact-buttons button:hover {
+  background-color: #0075fa;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 500px) {
+  .contact-title {
+    font-size: 24px;
+  }
+}

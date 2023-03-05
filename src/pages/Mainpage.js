@@ -1,6 +1,6 @@
-import Navbar from "./Navbar";
-import GoogleSignIn from "./GoogleSignIn";
-import Footer from "./Footer";
+import Navbar from "../components/Navbar";
+import GoogleSignIn from "../components/GoogleSignIn";
+import Footer from "../components/Footer";
 
 const Mainpage = () => {
   return (

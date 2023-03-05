@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 //For CSS
-import "./GoogleSignIn.css";
+import "../styles/GoogleSignIn.css";
 
 //The Data
 import data from "../data.json";

@@ -1,4 +1,4 @@
-import "./Footer.css";
+import "../styles/Footer.css";
 import logo from "../logo.svg";
 
 export default function Footer() {
@@ -7,7 +7,7 @@ export default function Footer() {
       <p className="footer-details">
         Made with <img className="icon" width={35} src={logo} alt="react"></img>{" "}
         by <code className="footer-name">Justine Dave </code>{" "}
-        <span className="footer-version">(v1.1.2)</span>
+        <span className="footer-version">(v1.2.0)</span>
       </p>
     </footer>
   );

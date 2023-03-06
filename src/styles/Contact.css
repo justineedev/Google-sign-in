@@ -3,6 +3,7 @@
   max-width: 500px;
   height: calc(100vh - 1rem);
   max-height: 500px;
+  min-height: 500px;
   border-radius: 6px;
   padding: 25px;
   position: absolute;

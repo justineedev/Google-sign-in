@@ -57,7 +57,7 @@ const Contact = () => {
           autoClose: 3000,
           type: toast.TYPE.SUCCESS,
         });
-        e.target.reset(); // reset form fields
+        e.target.reset();
       })
       .catch((err) => {
         toast.update("processing", {
@@ -70,7 +70,11 @@ const Contact = () => {
   };
   return (
     <>
-      <ToastContainer transition={Flip} />
+      <ToastContainer
+        transition={Flip}
+        limit={5}
+        style={{ marginTop: "20px" }}
+      />
       <div className="contact-wrapper">
         <h1 className="contact-title">How can we assist you?</h1>
         <form onSubmit={sendEmail}>

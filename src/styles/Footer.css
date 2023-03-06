@@ -1,7 +1,8 @@
 .footer {
+  height: auto;
+  width: 100%;
   position: absolute;
   bottom: 20px;
-  width: 100vw;
 }
 
 .footer-details {

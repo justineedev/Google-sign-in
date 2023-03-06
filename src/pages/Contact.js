@@ -73,7 +73,7 @@ const Contact = () => {
       <ToastContainer
         transition={Flip}
         limit={5}
-        style={{ marginTop: "20px" }}
+        style={{ marginBlock: "10px" }}
       />
       <div className="contact-wrapper">
         <h1 className="contact-title">How can we assist you?</h1>
@@ -97,6 +97,7 @@ const Contact = () => {
               placeholder=" "
               className="contact-input"
               ref={fromEmailRef}
+              required
             />
             <label htmlFor="" className="contact-input-label">
               <span>Email</span>
@@ -109,6 +110,7 @@ const Contact = () => {
               className="contact-input textarea"
               style={{ height: "175px" }}
               ref={messageRef}
+              required
             ></textarea>
             <label htmlFor="" className="contact-input-label textarea">
               <span>What's on your mind?</span>

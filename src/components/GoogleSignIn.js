@@ -14,6 +14,15 @@ function GoogleSignIn() {
   const [accessToken, setAccessToken] = useState("");
   const [isCopied, setIsCopied] = useState(false);
 
+  useEffect(() => {
+    return () => {
+      if (data)
+        for (let i = 0; i < data.length; i++) {
+          data[i].isSelected = false;
+        }
+    };
+  }, []);
+
   const scopeOnClick = (data) => {
     data.isSelected = !data.isSelected;
 

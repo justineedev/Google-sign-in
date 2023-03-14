@@ -5,6 +5,7 @@ import emailjs from "emailjs-com";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Contact.css";
+import Loading from "./Loading";
 
 const Contact = () => {
   const [isSending, setIsSending] = useState(false);
@@ -70,6 +71,7 @@ const Contact = () => {
   };
   return (
     <>
+      <Loading />
       <ToastContainer
         transition={Flip}
         limit={5}

@@ -115,7 +115,7 @@ const Contact = () => {
               required
             ></textarea>
             <label htmlFor="" className="contact-input-label textarea">
-              <span>What's on your mind?</span>
+              <span>Message</span>
             </label>
           </div>
 

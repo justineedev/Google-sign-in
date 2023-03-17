@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 //For CSS
 import "../styles/GoogleSignIn.css";
 
 //The Data
-import data from "../data.json";
+import dataBase from "../data.json";
 
 //For random ID
 import { nanoid } from "nanoid";
@@ -13,25 +13,27 @@ function GoogleSignIn() {
   const [scopes, setScopes] = useState([]);
   const [accessToken, setAccessToken] = useState("");
   const [isCopied, setIsCopied] = useState(false);
+  const [data, setData] = useState(dataBase);
 
+  const searchBox = useRef();
   useEffect(() => {
     return () => {
-      if (data)
-        for (let i = 0; i < data.length; i++) {
-          data[i].isSelected = false;
+      if (dataBase)
+        for (let i = 0; i < dataBase.length; i++) {
+          dataBase[i].isSelected = false;
         }
     };
   }, []);
 
-  const scopeOnClick = (data) => {
-    data.isSelected = !data.isSelected;
+  const scopeOnClick = (dataButton) => {
+    dataButton.isSelected = !dataButton.isSelected;
 
-    if (scopes.includes(data.scope)) {
+    if (scopes.includes(dataButton.scope)) {
       setScopes((prevScopes) =>
-        prevScopes.filter((item) => item !== data.scope)
+        prevScopes.filter((item) => item !== dataButton.scope)
       );
     } else {
-      setScopes((prevScopes) => [...prevScopes, data.scope]);
+      setScopes((prevScopes) => [...prevScopes, dataButton.scope]);
     }
   };
 
@@ -78,25 +80,47 @@ function GoogleSignIn() {
     }
   };
 
-  const gScopeButtons = data.map((item) => {
-    return (
-      <button
-        key={nanoid()}
-        onClick={() => scopeOnClick(item)}
-        className={item.isSelected ? "gButton active" : "gButton"}
-      >
-        {item.name}
-      </button>
-    );
-  });
+  const search = () => {
+    const filteredData = dataBase.filter((item) => {
+      return item.name
+        .toLowerCase()
+        .includes(searchBox.current.value.toLowerCase());
+    });
+    setData(filteredData);
+  };
 
   return (
     <div className="gWrapper">
       <h1>Google Token</h1>
 
       <div className="gBox">
-        <span>Select scopes:</span>
-        <div className="gScopesContainer">{gScopeButtons}</div>
+        <span style={{ display: "block" }}>Select scopes:</span>
+        <input
+          type="text"
+          className="gBox-input-search"
+          ref={searchBox}
+          onChange={search}
+          placeholder="Search..."
+        ></input>
+
+        <div className="gScopesContainer">
+          {data.length > 0 ? (
+            data.map((item) => (
+              <button
+                key={nanoid()}
+                onClick={() => scopeOnClick(item)}
+                className={item.isSelected ? "gButton active" : "gButton"}
+              >
+                {item.name}
+              </button>
+            ))
+          ) : (
+            <code className="gScopesContainer-not-found">
+              Oops! We couldn't find any matches for your search. Looking for
+              more scopes? You can contact us.
+            </code>
+          )}
+        </div>
 
         {scopes.length > 0 && (
           <button

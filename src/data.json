@@ -1,5 +1,10 @@
 [
   {
+    "name": "Gmail",
+    "scope": "https://mail.google.com/",
+    "isSelected": false
+  },
+  {
     "name": "Google Drive v3",
     "image": "https://cdn-icons-png.flaticon.com/512/2913/2913963.png",
     "scope": "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.metadata",
@@ -21,17 +26,17 @@
     "isSelected": false
   },
   {
-    "name": "Google Forms",
-    "image": "https://cdn-icons-png.flaticon.com/512/2913/2913988.png",
-    "scope": "https://www.googleapis.com/auth/forms",
-    "color": "#6A40B4",
-    "isSelected": false
-  },
-  {
     "name": "Youtube Data",
     "image": "https://cdn-icons-png.flaticon.com/512/185/185983.png",
     "scope": "https://www.googleapis.com/auth/youtube",
     "color": "#FF0000",
+    "isSelected": false
+  },
+  {
+    "name": "Google Forms",
+    "image": "https://cdn-icons-png.flaticon.com/512/2913/2913988.png",
+    "scope": "https://www.googleapis.com/auth/forms",
+    "color": "#6A40B4",
     "isSelected": false
   },
   {
@@ -60,6 +65,16 @@
     "image": "https://cdn-icons-png.flaticon.com/512/906/906334.png",
     "scope": "https://www.googleapis.com/auth/tasks",
     "color": "#2580F4",
+    "isSelected": false
+  },
+  {
+    "name": "Google Calendar",
+    "scope": "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events",
+    "isSelected": false
+  },
+  {
+    "name": "Google Books",
+    "scope": "https://www.googleapis.com/auth/books",
     "isSelected": false
   }
 ]

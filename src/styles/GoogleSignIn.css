@@ -2,7 +2,7 @@
   width: calc(100vw - 1rem);
   max-width: 500px;
   height: calc(100vh - 1rem);
-  max-height: 500px;
+  max-height: 550px;
   border-radius: 6px;
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -22,6 +22,22 @@
   margin-bottom: 10px;
 }
 
+.gBox-input-search {
+  width: 100%;
+  font-family: inherit;
+  padding: 2.5px 5px;
+  outline: none;
+  border: 1px solid #1e1e1e;
+  border-radius: 4px;
+  transition: all 300ms ease;
+  margin-top: 10px;
+  font-size: medium;
+}
+
+.gBox-input-search:focus {
+  border-color: #0075fa;
+}
+
 .gScopesContainer {
   display: grid;
   place-items: center;
@@ -31,6 +47,14 @@
   max-height: 250px;
   overflow-y: auto;
   margin-top: 15px;
+  position: relative;
+}
+
+.gScopesContainer-not-found {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 16px;
+  color: crimson;
 }
 
 .gButton {
@@ -44,6 +68,10 @@
   height: 35px;
   background: #e2eaf5;
   transition: all 400ms ease;
+}
+
+.gButton.matching {
+  opacity: 0.5;
 }
 
 .gButton:hover {
@@ -108,6 +136,7 @@
 
   position: absolute;
   bottom: 10px;
+  width: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -125,6 +154,11 @@
   }
   .login-with-google-btn {
     width: 100%;
+  }
+  .gWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 }
 
@@ -148,3 +182,9 @@
   background-color: #b8d0eb;
   border-radius: 5px;
 }
+
+/* 
+commit 
+- Added search function
+- Fixed CSS issue when width drops to 500px
+- Added more scopes */

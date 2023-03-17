@@ -1,25 +1,25 @@
 .gWrapper {
-  width: calc(100vw - 1rem);
-  max-width: 500px;
-  height: calc(100vh - 1rem);
+  width: calc(100% - 1rem);
+  max-width: 550px;
+  min-height: 550px;
   max-height: 550px;
+  height: 100%;
   border-radius: 6px;
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-block: auto;
 }
 
 .gBox {
   position: relative;
-  height: 80%;
+  height: 100%;
 }
 
 .gWrapper h1 {
   text-align: center;
-  margin-bottom: 10px;
 }
 
 .gBox-input-search {
@@ -43,11 +43,12 @@
   place-items: center;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px 15px;
-  max-height: 250px;
+  gap: 10px;
   overflow-y: auto;
-  margin-top: 15px;
+  margin-block: 15px;
   position: relative;
+  height: 100%;
+  /* height: calc(100% - 75px); */
 }
 
 .gScopesContainer-not-found {
@@ -70,10 +71,6 @@
   transition: all 400ms ease;
 }
 
-.gButton.matching {
-  opacity: 0.5;
-}
-
 .gButton:hover {
   transition: all 400ms ease;
   border: 1px solid #0075fa;
@@ -89,6 +86,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
+  height: 25px;
 }
 
 .access-token-title {
@@ -133,13 +132,19 @@
   background-color: white;
   background-repeat: no-repeat;
   background-position: 12px 11px;
-
-  position: absolute;
-  bottom: 10px;
   width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: auto;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
 }
+
+.login-with-google-btn.show {
+  height: 50px;
+  opacity: 1;
+  visibility: visible;
+}
+
 .login-with-google-btn:hover {
   background-color: #0075fa;
   color: #fff;
@@ -148,17 +153,20 @@
 @media only screen and (max-width: 500px) {
   .gScopesContainer {
     grid-template-columns: 1fr;
+    max-height: 300px;
   }
   .gButton {
     height: 50px;
   }
-  .login-with-google-btn {
-    width: 100%;
+}
+
+@media screen and (max-width: 500px) and (max-height: 650px) {
+  .gScopesContainer {
+    grid-template-columns: 1fr;
+    max-height: 250px;
   }
-  .gWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  .gButton {
+    height: 50px;
   }
 }
 

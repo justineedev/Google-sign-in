@@ -121,17 +121,28 @@ function GoogleSignIn() {
             </code>
           )}
         </div>
-
-        {scopes.length > 0 && (
-          <button
-            type="button"
-            className="login-with-google-btn"
-            onClick={signIn}
-          >
-            Sign in with Google
-          </button>
-        )}
       </div>
+      {/* {scopes.length > 0 && (
+        <button
+          type="button"
+          className="login-with-google-btn"
+          onClick={signIn}
+        >
+          Sign in with Google
+        </button>
+      )} */}
+
+      <button
+        type="button"
+        className={
+          scopes.length > 0
+            ? "login-with-google-btn show"
+            : "login-with-google-btn"
+        }
+        onClick={signIn}
+      >
+        Sign in with Google
+      </button>
 
       {accessToken && (
         <div className="access-token-container">
